@@ -42,7 +42,8 @@ public class LoginPage {
 				
 				//bussiness Logic
 				
-				public void LoginToApp(String username,String password) {
+				public void LoginToApp(String URL,String username,String password) {
+					driver.get(URL);
 					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			        wait.until(ExpectedConditions.visibilityOf(userNameTextField));
 					userNameTextField.sendKeys(username);

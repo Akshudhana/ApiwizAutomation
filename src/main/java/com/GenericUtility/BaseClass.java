@@ -19,7 +19,7 @@ public class BaseClass {
 		 System.out.println("BeforeMethod running");  
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("https://akshatha-dev.apiwiz.io/");
+		
 		
 		
 	}
