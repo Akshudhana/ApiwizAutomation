@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.Sandbox.AwsSqsNodeTest"/>
+      <class name="com.Sandbox.EnvironmentsTest"/>
+      <class name="com.Sandbox.RestApiNodeTest"/>
+      <class name="com.Sandbox.JsonToXmlTest"/>
+      <class name="com.Sandbox.samplesandbox"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

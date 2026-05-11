@@ -72,7 +72,7 @@ public class EnvironmentPage {
 		 PageFactory.initElements(driver, this);
 	 }
 	 
-	 public void CreateEnvironment(WebDriver driver,String envName,String envDesc,String key,String value) throws InterruptedException {
+	 public String CreateEnvironment(WebDriver driver,String envName,String envDesc,String key,String value) throws InterruptedException {
 		 Actions actions=new Actions(driver);
 		 
 		 Random random=new Random();
@@ -86,7 +86,8 @@ public class EnvironmentPage {
 		 
 		 String envname = envName + "_"+ran;
 		 
-		 nametextfieldElement.sendKeys(envname);
+		 nametextfieldElement.sendKeys(envname );
+	
 		 Thread.sleep(3000);
 		 
 		 descriptionTextFieldElement.sendKeys(envDesc);
@@ -99,5 +100,6 @@ public class EnvironmentPage {
 		 Thread.sleep(3000);
 		 
 		 actions.moveToElement(savebuttonElement).click().perform();
+		 return envname;
 	 }
 }

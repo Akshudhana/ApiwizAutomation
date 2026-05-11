@@ -2,6 +2,7 @@ package com.Sandbox;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Random;
 
@@ -91,7 +92,6 @@ public class samplesandbox {
 		
 		 WebElement collectionClick = driver.findElement(By.xpath("//p[text()='" + collectionName+ "']"));
 		 collectionClick.click();
-		     
 		 Thread.sleep(3000);
 	     
 	     WebElement AddWorkflow = driver.findElement(

@@ -12,8 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LoginPage {
 	WebDriver driver;
 	
-
-
 		//Decleration
 				@FindBy(xpath="//input[@placeholder='Enter Username']")
 				private WebElement userNameTextField;
@@ -42,16 +40,29 @@ public class LoginPage {
 				
 				//bussiness Logic
 				
-				public void LoginToApp(String URL,String username,String password) {
-					driver.get(URL);
+				public void AkshathadevStageLogin()
+				{
+					driver.get("https://akshatha-dev.apiwiz.io/");
 					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			        wait.until(ExpectedConditions.visibilityOf(userNameTextField));
-					userNameTextField.sendKeys(username);
+					userNameTextField.sendKeys("TeamUserAnkit");
 					wait.until(ExpectedConditions.visibilityOf(passwordTextField));
-					passwordTextField.sendKeys(password);
+					passwordTextField.sendKeys("Devuseraccount@10");
 					wait.until(ExpectedConditions.visibilityOf(loginButton));
 					loginButton.click();
 					
+				}
+				
+				public void AcmeteamProductionLogin()
+				{
+					driver.get("https://acme-team-production.apiwiz.io/auth");
+					WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+			        wait.until(ExpectedConditions.visibilityOf(userNameTextField));
+					userNameTextField.sendKeys("AkshathaSM");
+					wait.until(ExpectedConditions.visibilityOf(passwordTextField));
+					passwordTextField.sendKeys("L8#kR!9vPz@4tQ2sAD510");
+					wait.until(ExpectedConditions.visibilityOf(loginButton));
+					loginButton.click();
 				}
 	}
 

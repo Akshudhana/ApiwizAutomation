@@ -2,10 +2,12 @@ package com.Sandbox;
 
 
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import com.GenericUtility.BaseClass;
 import com.PomPages.LoginPage;
 import com.SandboxPomPage.EnvironmentPage;
 import com.SandboxPomPage.NavigatingToSandoxPage;
+import com.mysql.cj.util.LogUtils;
 
 
 
@@ -17,8 +19,8 @@ public class EnvironmentsTest extends BaseClass
 	public void CreateEnvironment() throws InterruptedException {
 	
 	LoginPage loginPage = new LoginPage(driver);
-//	loginPage.LoginToApp("https://acme-team-production.apiwiz.io/auth","AkshathaSM", "L8#kR!9vPz@4tQ2sAD512");
-	loginPage.LoginToApp("https://akshatha-dev.apiwiz.io/", "TeamUserAnkit", "Devuseraccount@8");
+    loginPage.AkshathadevStageLogin();
+//    loginPage.AcmeteamProductionLogin();
 	
 	NavigatingToSandoxPage navigatingToSandox=new NavigatingToSandoxPage(driver);
 	navigatingToSandox.navigatingToSandbox(driver);

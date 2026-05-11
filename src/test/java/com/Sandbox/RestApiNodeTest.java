@@ -1,5 +1,6 @@
 package com.Sandbox;
 
+import org.testng.annotations.Test;
 import java.sql.Driver;
 
 import org.testng.annotations.Test;
@@ -8,6 +9,8 @@ import com.GenericUtility.BaseClass;
 import com.PomPages.LoginPage;
 import com.PomPages.RestApiPage;
 import com.SandboxPomPage.AddCollection;
+import com.SandboxPomPage.AddServiceCalloutPage;
+import com.SandboxPomPage.NavigatingToSandoxPage;
 import com.SandboxPomPage.ResponseNodePages;
 import com.SandboxPomPage.RunPage;
 import com.SandboxPomPage.deployPage;
@@ -17,8 +20,11 @@ public class RestApiNodeTest extends BaseClass{
 	@Test
 	public void RestApi() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(driver);
-//		loginPage.LoginToApp("https://acme-team-production.apiwiz.io/auth","AkshathaSM", "L8#kR!9vPz@4tQ2sAD512");
-		loginPage.LoginToApp("https://akshatha-dev.apiwiz.io/", "TeamUserAnkit", "Devuseraccount@8");
+        loginPage.AkshathadevStageLogin();
+//        loginPage.AcmeteamProductionLogin();
+		
+		NavigatingToSandoxPage navigatingToSandoxPage=new NavigatingToSandoxPage(driver);
+		navigatingToSandoxPage.navigatingToSandbox(driver);
 		
 		AddCollection collection=new AddCollection(driver);
 		String collectionname = collection.generateCollectionName("RestApi");
@@ -29,6 +35,8 @@ public class RestApiNodeTest extends BaseClass{
 		
 		collection.addWorkflowByUsingStartWithBlackOption(driver, collectionname, "restapi");
 		
+		AddServiceCalloutPage addServiceCalloutPage=new AddServiceCalloutPage(driver);
+		addServiceCalloutPage.AddServiceCallout(driver);
 		
 		RestApiPage restApiNodeTest=new RestApiPage(driver);
 		restApiNodeTest.AddRestApiNodeToServiceCallout(driver,"RestApi", "RestApi", "akshatha-dev-gnhn.apiwiz.io", "restapi");

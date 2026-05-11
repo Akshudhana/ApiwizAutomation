@@ -3,6 +3,7 @@ package com.Sandbox;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -24,8 +25,8 @@ public class AwsSqsNodeTest extends BaseClass{
 public void addAWSSQSNodeUsingConnectorConneaction() throws InterruptedException{
   System.out.print("driver----->"+ driver);
   LoginPage loginPage = new LoginPage(driver);
-//	loginPage.LoginToApp("https://acme-team-production.apiwiz.io/auth","AkshathaSM", "L8#kR!9vPz@4tQ2sAD512");
-	loginPage.LoginToApp("https://akshatha-dev.apiwiz.io/", "TeamUserAnkit", "Devuseraccount@8");
+  loginPage.AkshathadevStageLogin();
+//  loginPage.AcmeteamProductionLogin();
 	
 	NavigatingToSandoxPage navigatingToSandox=new NavigatingToSandoxPage(driver);
 	navigatingToSandox.navigatingToSandbox(driver);
@@ -59,8 +60,8 @@ public void addAWSSQSNodeUsingConnectorConneaction() throws InterruptedException
 	@Test
 	public void addAWSSQSNodeUsingManualConneaction() throws InterruptedException {
 		LoginPage loginPage = new LoginPage(driver);
-//		loginPage.LoginToApp("https://acme-team-production.apiwiz.io/auth","AkshathaSM", "L8#kR!9vPz@4tQ2sAD512");
-		loginPage.LoginToApp("https://akshatha-dev.apiwiz.io/", "TeamUserAnkit", "Devuseraccount@8");
+        loginPage.AkshathadevStageLogin();
+        loginPage.AcmeteamProductionLogin();
 		
 		NavigatingToSandoxPage navigatingToSandox=new NavigatingToSandoxPage(driver);
 		navigatingToSandox.navigatingToSandbox(driver);
