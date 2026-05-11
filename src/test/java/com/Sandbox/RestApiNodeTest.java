@@ -1,5 +1,6 @@
 package com.Sandbox;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import java.sql.Driver;
 
@@ -15,7 +16,9 @@ import com.SandboxPomPage.ResponseNodePages;
 import com.SandboxPomPage.RunPage;
 import com.SandboxPomPage.deployPage;
 
+@Listeners(com.GenericUtility.ListImpClassA.class)
 public class RestApiNodeTest extends BaseClass{
+	
 	
 	@Test
 	public void RestApi() throws InterruptedException {

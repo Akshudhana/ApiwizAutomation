@@ -1,6 +1,7 @@
 package com.Sandbox;
 
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import com.GenericUtility.BaseClass;
@@ -11,7 +12,7 @@ import com.mysql.cj.util.LogUtils;
 
 
 
-
+@Listeners(com.GenericUtility.ListImpClassA.class)
 
 public class EnvironmentsTest extends BaseClass
 {
@@ -32,8 +33,4 @@ public class EnvironmentsTest extends BaseClass
      
 	}
 	
-	
-
-
-
 }

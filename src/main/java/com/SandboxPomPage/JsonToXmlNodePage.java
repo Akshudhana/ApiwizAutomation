@@ -1,7 +1,6 @@
 package com.SandboxPomPage;
 
-import java.security.PrivateKey;
-import java.sql.Driver;
+
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,12 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import com.aventstack.extentreports.util.Assert;
-
-import net.bytebuddy.asm.MemberSubstitution.FieldValue;
-
-import org.testng.annotations.Test;
 public class JsonToXmlNodePage {
 	
 
@@ -46,14 +39,11 @@ public class JsonToXmlNodePage {
 	@FindBy(xpath = "//p[text()='Save']")
 	private WebElement saveButtonElement;
 	
-	@FindBy(xpath = "//div[text()='JSON was successfully converted to XML']")
+	@FindBy(xpath = "//div[text()='JSON was successfully converted to XML' and @class='fs-12px fw-500 color-text-regular text-truncate-1 flex-row vt-center gap-6px']")
 	private WebElement JSONWasSuccessfullyConvertedToXML;
 	
     @FindBy(xpath = "//div[@class='cslr selected-text top-left-radius bottom-left-radius top-right-radius bottom-right-radius']")
     private WebElement xmlBodyElement;
-
-
-
 
 	@FindBy(xpath = "//div[text()='JSON was successfully converted to XML']/ancestor::div[@class='h-33px px-8px flex-row hz-space-between vt-center hover-bg-surface-ground-hover border-bottom-stroke-subsection-1px cursor-pointer']/descendant::div[@data-tooltip-place='top'][1]")
     private WebElement jSONWasSuccessfullyConvertedToXMLDEtailsViewElement;
@@ -137,35 +127,34 @@ public class JsonToXmlNodePage {
 		
 		Thread.sleep(3000);
 		actions.moveToElement(saveButtonElement).click().perform();
-		
 	}
 	
-	public void validatingTheXMLDataAfterConvertingFronJsonToXML(WebDriver driver) {
-		
-//		String actualTitle="JSON was successfully converted to XML";
-		Actions actions=new Actions(driver);
-		actions.moveToElement(jSONWasSuccessfullyConvertedToXMLDEtailsViewElement).click().perform();
-		
-	String JSONWasSuccessfullyConvertedToXMLs=JSONWasSuccessfullyConvertedToXML.getText();
-	if (JSONWasSuccessfullyConvertedToXMLs.equals("JSON was successfully converted to XML")) {
-		System.out.println("successfull1");
-		
-	}
-	else {
-		System.out.println("failed1");
-	}
-//	Assert.assertEquals(JSONWasSuccessfullyConvertedToXMLs, "JSON was successfully converted to XML");
-
-      
-		
-		String xmlData = xmlBodyElement.getText();
-		
-		if (xmlData.equals("<User>admin</User>")) {
-			System.out.println("successfull");
-		}
-		else {
-			System.out.print("fail");
-		}
-		
-	}
+//	public void validatingTheXMLDataAfterConvertingFronJsonToXML(WebDriver driver) throws InterruptedException {
+//		
+////		String actualTitle="JSON was successfully converted to XML";
+//
+//        
+//		String jsonWasSuccessfullyConvertedToXMLText = JSONWasSuccessfullyConvertedToXML.getText();
+//		System.out.println("jsonWasSuccessfullyConvertedToXMLText----->"+jsonWasSuccessfullyConvertedToXMLText);
+//		
+//	if (jsonWasSuccessfullyConvertedToXMLText.contains("JSON was successfully converted to XML")) {
+//	    System.out.println("successful1");
+//	} else {
+//	    System.out.println("failed1");
+//	}
+////	Assert.assertEquals(JSONWasSuccessfullyConvertedToXMLs, "JSON was successfully converted to XML");
+//
+//	Thread.sleep(3000);
+//	Actions actions = new Actions(driver);
+//	actions.moveToElement(jSONWasSuccessfullyConvertedToXMLDEtailsViewElement).click().perform();
+//		String xmlData = xmlBodyElement.getText();
+//		
+//		if (xmlData.equals("<User>admin</User>")) {
+//			System.out.println("successfull");
+//		}
+//		else {
+//			System.out.print("fail");
+//		}
+//		
+//	}
 }

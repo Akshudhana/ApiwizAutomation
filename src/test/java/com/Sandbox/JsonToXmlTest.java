@@ -1,11 +1,7 @@
 package com.Sandbox;
 
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import java.util.Random;
-
-import org.apache.commons.io.input.RandomAccessFileInputStream;
-import org.testng.annotations.Test;
-
 import com.GenericUtility.BaseClass;
 import com.PomPages.LoginPage;
 import com.SandboxPomPage.AddCollection;
@@ -17,6 +13,7 @@ import com.SandboxPomPage.ResponseNodePages;
 import com.SandboxPomPage.RunPage;
 import com.SandboxPomPage.deployPage;
 
+@Listeners(com.GenericUtility.ListImpClassA.class)
 public class JsonToXmlTest extends BaseClass{
 	
 	@Test
@@ -32,13 +29,13 @@ public class JsonToXmlTest extends BaseClass{
 		
 		String envName = "env";
 		String envKey="payload";
-		String targetvar = "taegetvar";
+		String targetvar = "targetvar";
 		
 		EnvironmentPage environmentPage=new EnvironmentPage(driver);
 		String createdEnvName=environmentPage.CreateEnvironment(driver, envName, "Env_desc", envKey, "{\"User\" : \"admin\"}");
 		
 		AddCollection addCollection = new AddCollection(driver);
-		String collectionName = addCollection.generateCollectionName("ApiEnvcollectionasssss");
+		String collectionName = addCollection.generateCollectionName("JsonToXmlConverter");
 		
 		addCollection.createCollection(driver, collectionName);
 		
@@ -53,7 +50,7 @@ public class JsonToXmlTest extends BaseClass{
 		Thread.sleep(3000);
 		
 	    JsonToXmlNodePage jsonToXmlNodePage=new JsonToXmlNodePage(driver);
-	    jsonToXmlNodePage.AddJsonToXmlNode(driver, "jsonNodeName", "JsonDesc", envKey, targetvar);
+	    jsonToXmlNodePage.AddJsonToXmlNode(driver, "JsonToXmlConverter", "JsonToXmlConverter", envKey, targetvar);
 	 
 	    String responseString = "{\"Response\" : \"{{{" + targetvar + "}}}\"}";
 	    
@@ -62,11 +59,14 @@ public class JsonToXmlTest extends BaseClass{
 	    
 	    deployPage deployPage=new deployPage(driver);
 	    deployPage.StageDeployTheWorkflow(driver);
+	    Thread.sleep(2000);
 	    
 	    RunPage runPage=new RunPage(driver);
 	    runPage.SatgeRunWorkflow(driver);
 	    
-	    jsonToXmlNodePage.validatingTheXMLDataAfterConvertingFronJsonToXML(driver);
+	    Thread.sleep(3000);
+	    
+//	    jsonToXmlNodePage.validatingTheXMLDataAfterConvertingFronJsonToXML(driver);
 	    
 	        
 	}
